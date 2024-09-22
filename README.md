@@ -1,2 +1,2 @@
 # AWS-VPC
-AWS 3 Tier VPC
+AWS 3 Tier VPC Implementation
