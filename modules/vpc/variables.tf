@@ -3,12 +3,6 @@ variable "vpc_ipv4_cidr_block" {
   description = "IPv4 CIDR range for VPC"
 }
 
-variable "request_ipv6_cidr_block" {
-  type        = bool
-  description = "Request AWS IPv6 CIDR Block"
-  default = false
-}
-
 variable "vpc_dns_support" {
     type = bool
     description = "Enable/Disable DNS support for VPC"
