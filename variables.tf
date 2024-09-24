@@ -1,11 +1,9 @@
+################################
+#VPC
+
 variable "vpc_ipv4_cidr_block" {
   type        = string
   description = "IPv4 CIDR range for VPC"
-}
-
-variable "request_ipv6_cidr_block" {
-  type        = bool
-  description = "Request AWS IPv6 CIDR Block"
 }
 
 variable "vpc_dns_support" {
@@ -23,3 +21,9 @@ variable "vpc_name" {
   description = "VPC name"
 }
 
+###############################
+#Subnet
+
+variable "subnets" {
+  type = map(map(string))
+}
