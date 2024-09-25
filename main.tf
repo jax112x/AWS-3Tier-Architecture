@@ -14,3 +14,9 @@ module "subnets" {
   availability_zone = each.value.availability_zone
   ipv4_cidr_block   = each.value.ipv4_cidr_block
 }
+
+module "internet_gateway" {
+  source = "./modules/internet_gateway"
+  vpc_id = module.vpc.vpc_id
+  internet_gateway_name = var.internet_gateway_name
+}

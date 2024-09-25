@@ -25,5 +25,15 @@ variable "vpc_name" {
 #Subnet
 
 variable "subnets" {
-  type = map(map(string))
+  type = map(object({
+    availability_zone = string
+    ipv4_cidr_block   = string
+  }))
+}
+
+###############################
+#Internet Gateway
+
+variable "internet_gateway_name" {
+  type = string
 }
