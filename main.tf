@@ -6,17 +6,19 @@ module "vpc" {
   vpc_dns_hostnames   = var.vpc_dns_hostnames
 }
 
-module "subnets" {
-  source            = "./modules/subnet"
-  for_each          = var.subnets
-  vpc_id            = module.vpc.vpc_id
-  subnet_name       = each.key
-  availability_zone = each.value.availability_zone
-  ipv4_cidr_block   = each.value.ipv4_cidr_block
+module "internet_gateway" {
+  source                = "./modules/internet_gateway"
+  vpc_id                = module.vpc.id
+  internet_gateway_name = var.internet_gateway_name
 }
 
-module "internet_gateway" {
-  source = "./modules/internet_gateway"
-  vpc_id = module.vpc.vpc_id
-  internet_gateway_name = var.internet_gateway_name
+module "ig_route_table" {
+  source              = "./modules/route_table"
+  vpc_id              = module.vpc.id
+  name                = var.ig_route_table_name
+  internet_gateway_id = module.internet_gateway.id
+  routes              = var.ig_route_table_routes
+  subnet_association_ids = [
+    for k,v in var.ig_route_table_subnet_associations : local.modules[v].id
+  ]
 }
