@@ -17,3 +17,4 @@ variable "availability_zone" {
     type = string
     description = "Availabilty Zone in which subnet should be deployed"
 }
+
