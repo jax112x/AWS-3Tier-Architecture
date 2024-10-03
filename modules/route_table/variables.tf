@@ -11,12 +11,19 @@ variable "name" {
 variable "internet_gateway_id" {
   type = string
   description = "Internet Gateway Id"
+  nullable = true
+}
+
+variable "nat_gateway_id" {
+  type = string
+  description = "Nat Gateway Id"
+  nullable = true
 }
 
 variable "routes" {
   type = map(object({
     destination = string
-    target = string
+    # target = string
   }))
   description = "Route destinations and targets"
 }

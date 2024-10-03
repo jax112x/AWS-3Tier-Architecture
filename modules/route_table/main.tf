@@ -9,7 +9,8 @@ resource "aws_route" "route" {
     for_each = var.routes
     route_table_id = aws_route_table.route_table.id
     destination_cidr_block = each.value.destination
-    gateway_id = each.value.target == "internet gateway" ? var.internet_gateway_id : null
+    gateway_id = var.internet_gateway_id
+    nat_gateway_id = var.nat_gateway_id
 }
 
 resource "aws_route_table_association" "subnet_associations" {

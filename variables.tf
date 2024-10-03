@@ -51,14 +51,75 @@ variable "ig_route_table_name" {
 variable "ig_route_table_routes" {
   type = map(object({
     destination = string
-    target      = string
+    # target      = string
   }))
   description = "Route destination and target"
 }
 
 variable "ig_route_table_subnet_associations" {
-  type = list(string)
+  type        = list(string)
   description = "List of subnets to be associated to ig route table"
+}
+
+###############################
+#NAT Gateway
+
+variable "eip_ng_a_name" {
+  type        = string
+  description = "Name of Elastic IP"
+}
+
+variable "nat_gateway_a" {
+  type        = map(string)
+  description = "NAT gateway details"
+}
+
+
+variable "ng_a_route_table_name" {
+  type        = string
+  description = "Name for Route Table"
+}
+
+variable "ng_a_route_table_routes" {
+  type = map(object({
+    destination = string
+    # target      = string
+  }))
+  description = "Route destination and target"
+}
+
+variable "ng_a_route_table_subnet_associations" {
+  type        = list(string)
+  description = "List of subnets to be associated to nat gateway route table"
+}
+
+variable "eip_ng_b_name" {
+  type        = string
+  description = "Name of Elastic IP"
+}
+
+variable "nat_gateway_b" {
+  type        = map(string)
+  description = "NAT gateway details"
+}
+
+
+variable "ng_b_route_table_name" {
+  type        = string
+  description = "Name for Route Table"
+}
+
+variable "ng_b_route_table_routes" {
+  type = map(object({
+    destination = string
+    # target      = string
+  }))
+  description = "Route destination and target"
+}
+
+variable "ng_b_route_table_subnet_associations" {
+  type        = list(string)
+  description = "List of subnets to be associated to nat gateway route table"
 }
 
 
