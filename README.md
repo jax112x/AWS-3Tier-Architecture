@@ -4,7 +4,7 @@
 The 3 Tier VPC (Virtual Private Cloud) architecture on AWS is a design pattern that divides an application into three tiers within a VPC. This architecture provides increased scalability, availability, and security by distributing the components of the application across multiple availability zones.
 
 ## Architecture
-![alt text](/architecture.svg "Architecture")
+![alt text](/architecture.jpg "Architecture")
 
 ## Technologies used
 AWS VPC, Terraform
